@@ -4,12 +4,21 @@ const Wavify = ({ children }) => {
       <svg width="0" height="0">
         <defs>
           <clipPath id="clip-shape" clipPathUnits="objectBoundingBox">
-            <path d="M0,0.1 Q0.25,0.2 0.5,0.1 Q0.75,0 1,0.1 L1,1 L0,1 Z" />
+            <path
+              d="
+                M0,0.1 
+                Q0.25,0.2 0.5,0.1 
+                Q0.75,0 1,0.1 
+                L1,0.9 
+                Q0.75,0.8 0.5,0.9 
+                Q0.25,1 0,0.9 
+                Z"
+            />
           </clipPath>
         </defs>
       </svg>
       <div
-        className="bg-blue-100 pt-20"
+        className="bg-blue-100 pt-20 pb-20"
         style={{ clipPath: "url(#clip-shape)" }}
       >
         {children}

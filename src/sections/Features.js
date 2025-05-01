@@ -14,8 +14,8 @@ const Features = () => {
         <div className="flex flex-col py-10 space-x-0 space-y-10 md:space-y-0 md:space-x-5 md:flex-row">
           <BorderlessCard
             img="/icons/pipeline.png"
-            title="Lay Down Pipes"
-            description="I’ll create seamless data pipelines that collect, clean, and organize your data, making it easy to access and use. This will ensure your decisions are powered by reliable, up-to-date information."
+            title="Build Data Pipelines"
+            description="I build data pipelines that gather, clean, and organize your data so it flows smoothly and makes sense when you need it. Instead of digging through messy spreadsheets or disconnected tools, you'll have a clear, reliable stream of information ready to power better decisions."
           />
 
           <BorderlessCard
@@ -25,9 +25,9 @@ const Features = () => {
           />
 
           <BorderlessCard
-            img="/icons/pipeline.png"
-            title="service 2 "
-            description="test"
+            img="/icons/database.png"
+            title="Manage Backend Services"
+            description="I'll build the behind-the-scenes engine that makes your app or system run smoothly—crafting APIs, managing databases, and connecting all the moving parts. It’s about creating a solid, secure foundation so everything just works, even as your needs grow."
           />
         </div>
       </div>
