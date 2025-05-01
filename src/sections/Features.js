@@ -6,7 +6,7 @@ const Features = () => {
       <div className="relative flex flex-col w-3/4 mx-auto space-y-5">
         <div className="flex flex-col items-center">
           <h2 className="text-4xl font-bold text-center">
-            <span className="block">
+            <span className="block text-white">
               What can I do for you? Glad you asked.
             </span>
           </h2>

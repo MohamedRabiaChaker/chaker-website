@@ -7,9 +7,7 @@ const BorderlessCard = ({ img, title, description }) => {
         <Image width="48" height="48" src={img} alt="icon" />
       </div>
       <h3 className="text-2xl font-bold">{title}</h3>
-      <p className="text-center text-justify text-xl text-gray-400">
-        {description}
-      </p>
+      <p className=" text-justify text-xl text-white">{description}</p>
     </div>
   );
 };

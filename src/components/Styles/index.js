@@ -18,7 +18,7 @@ const Wavify = ({ children }) => {
         </defs>
       </svg>
       <div
-        className="bg-blue-100 pt-20 pb-20"
+        className="bg-slate-500 pt-20 pb-20"
         style={{ clipPath: "url(#clip-shape)" }}
       >
         {children}
