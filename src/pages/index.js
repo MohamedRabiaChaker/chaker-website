@@ -2,13 +2,11 @@ import Meta from "@/components/Meta/index";
 import Wavify from "@/components/Styles/index";
 import { LandingLayout } from "@/layouts/index";
 import {
-  CallToAction,
   Features,
   Footer,
   BlogSection,
   Hero,
-  Pricing,
-  Testimonial,
+  ProfessionalExperience,
 } from "@/sections/index";
 
 const Home = () => {
@@ -24,7 +22,7 @@ const Home = () => {
           <Features />
         </section>
       </Wavify>
-      <BlogSection />
+      <ProfessionalExperience />
       <section id="contacts">
         <Footer />
       </section>

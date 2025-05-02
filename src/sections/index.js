@@ -3,6 +3,6 @@ import Footer from "./Footer";
 import BlogSection from "./BlogSection";
 import Hero from "./Hero";
 import Pricing from "./Pricing";
-import Testimonial from "./Testimonial";
+import ProfessionalExperience from "./ProfessionalExperience";
 
-export { Features, Footer, BlogSection, Hero, Pricing, Testimonial };
+export { Features, Footer, BlogSection, Hero, Pricing, ProfessionalExperience };
