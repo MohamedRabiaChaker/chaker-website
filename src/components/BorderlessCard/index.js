@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+// FIXME: change the image into icons using reactIcons
 const BorderlessCard = ({ img, title, description }) => {
   return (
     <div className="flex flex-col items-center justify-start px-5 space-y-3 md:w-1/3">

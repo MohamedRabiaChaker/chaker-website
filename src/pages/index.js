@@ -7,6 +7,7 @@ import {
   BlogSection,
   Hero,
   ProfessionalExperience,
+  Header,
 } from "@/sections/index";
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
         title="Mohamed Rabii CHAKER"
         description="Personal website of Mohamed Rabii CHAKER"
       />
+      <Header />
       <Hero />
       <Wavify>
         <section id="about">
