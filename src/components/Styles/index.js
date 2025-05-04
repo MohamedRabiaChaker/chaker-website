@@ -1,6 +1,6 @@
-const Wavify = ({ children }) => {
+const Wavify = ({ children, id }) => {
   return (
-    <>
+    <div id={id}>
       <svg width="0" height="0">
         <defs>
           <clipPath id="clip-shape" clipPathUnits="objectBoundingBox">
@@ -23,7 +23,7 @@ const Wavify = ({ children }) => {
       >
         {children}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@ const LandingLayout = ({ children }) => {
   }, [setTheme]);
 
   return (
-    <main className="bg-gray-200 relative flex flex-col text-gray-800">
+    <main className="bg-gray-300 relative flex flex-col text-gray-800">
       {children}
     </main>
   );

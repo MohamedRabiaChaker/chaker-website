@@ -25,6 +25,9 @@ const Home = () => {
         </section>
       </Wavify>
       <ProfessionalExperience />
+      <Wavify id="blog">
+        <BlogSection />
+      </Wavify>
       <section id="contacts">
         <Footer />
       </section>
