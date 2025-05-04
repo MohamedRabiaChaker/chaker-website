@@ -1,6 +1,3 @@
-import AccountLayout from './AccountLayout';
-import AuthLayout from './AuthLayout';
-import LandingLayout from './LandingLayout';
-import PublicLayout from './PublicLayout';
+import LandingLayout from "./LandingLayout";
 
-export { AccountLayout, AuthLayout, LandingLayout, PublicLayout };
+export { LandingLayout };

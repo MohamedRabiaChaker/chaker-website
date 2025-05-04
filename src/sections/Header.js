@@ -2,6 +2,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import AnimatedSectionLink from "@/components/AnimatedSectionLink";
 
 const Header = () => {
   const toggleMenu = () => setMenuVisibility(!showMenu);
@@ -42,18 +43,30 @@ const Header = () => {
           ].join(" ")}
         >
           <nav className="flex flex-col items-center w-full space-x-0 space-y-0 text-center mb-3 md:space-y-0 md:space-x-3 md:flex-row">
-            <a href="#about" className="px-5 py-2 rounded hover:bg-gray-100">
+            <AnimatedSectionLink
+              href="#about"
+              className="px-5 py-2 rounded hover:bg-gray-100"
+            >
               {t("common.label.about")}
-            </a>
-            <a href="#projects" className="px-5 py-2 rounded hover:bg-gray-100">
-              {t("common.label.projects")}
-            </a>
-            <a href="#blog" className="px-5 py-2 rounded hover:bg-gray-100">
+            </AnimatedSectionLink>
+            <AnimatedSectionLink
+              href="#resume"
+              className="px-5 py-2 rounded hover:bg-gray-100"
+            >
+              {t("common.label.resume")}
+            </AnimatedSectionLink>
+            <AnimatedSectionLink
+              href="#blog"
+              className="px-5 py-2 rounded hover:bg-gray-100"
+            >
               {t("common.label.blog")}
-            </a>
-            <a href="#contacts" className="px-5 py-2 rounded hover:bg-gray-100">
+            </AnimatedSectionLink>
+            <AnimatedSectionLink
+              href="#contacts"
+              className="px-5 py-2 rounded hover:bg-gray-100"
+            >
               {t("common.label.contacts")}
-            </a>
+            </AnimatedSectionLink>
           </nav>
         </div>
       </div>

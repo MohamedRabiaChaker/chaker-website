@@ -18,13 +18,15 @@ const Home = () => {
         description="Personal website of Mohamed Rabii CHAKER"
       />
       <Header />
-      <Hero />
-      <Wavify>
-        <section id="about">
-          <Features />
-        </section>
+      <section id="about">
+        <Hero />
+      </section>
+      <Wavify id="services">
+        <Features />
       </Wavify>
-      <ProfessionalExperience />
+      <section id="resume">
+        <ProfessionalExperience />
+      </section>
       <Wavify id="blog">
         <BlogSection />
       </Wavify>

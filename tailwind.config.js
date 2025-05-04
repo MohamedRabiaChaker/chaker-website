@@ -9,7 +9,17 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        fadeOut: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+      },
+      animation: {
+        fadeOut: "fadeOut 0.5s forwards",
+      },
+    },
   },
   plugins: [daisyui],
 };
