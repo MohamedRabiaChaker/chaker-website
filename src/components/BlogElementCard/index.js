@@ -1,8 +1,18 @@
 import { v4 as uuidv4 } from "uuid";
 
-const BlogElementCard = ({ img, title, shortDescription, tags, isNew }) => {
+const BlogElementCard = ({
+  img,
+  title,
+  shortDescription,
+  tags,
+  isNew,
+  onClick,
+}) => {
   return (
-    <div className="card bg-zinc-400 w-96 shadow-sm">
+    <div
+      className="card transition bg-zinc-400 w-96  shadow-lg hover:shadow-xl hover:-translate-y-2"
+      onClick={onClick}
+    >
       <figure>
         <img src={img} alt="" />
       </figure>

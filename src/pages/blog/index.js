@@ -1,6 +1,7 @@
 "use client";
 import useSWR from "swr";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import LandingLayout from "@/layouts/LandingLayout";
 import Header from "@/sections/Header";
 import BlogElementCard from "@/components/BlogElementCard";
@@ -10,6 +11,11 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function BlogPage() {
   const { data: posts, error } = useSWR("/api/posts", fetcher);
   const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
+
+  const navigateToPost = (slug) => {
+    router.push("/blog/" + slug);
+  };
 
   if (error) return <div>Failed to load</div>;
   if (!posts) return <div>Loading...</div>;
@@ -50,6 +56,7 @@ export default function BlogPage() {
             img="/blog/testImage.png"
             tags={element.tags}
             isNew={!isOlderThan15Days(element.createdAt)}
+            onClick={() => navigateToPost(element.slug)}
           />
         ))}
       </div>
