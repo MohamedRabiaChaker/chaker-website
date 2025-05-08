@@ -53,7 +53,7 @@ export default function BlogPage() {
             key={element.id}
             title={element.title}
             shortDescription={element.description}
-            img="/blog/testImage.png"
+            img={element.coverUrl}
             tags={element.tags}
             isNew={!isOlderThan15Days(element.createdAt)}
             onClick={() => navigateToPost(element.slug)}
