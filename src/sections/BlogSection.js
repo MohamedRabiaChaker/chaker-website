@@ -1,23 +1,22 @@
 import BorderedCard from "@/components/BorderedCard";
+import useSWR from "swr";
+import { useRouter } from "next/router";
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const BlogSection = () => {
-  const highlights = [
-    {
-      id: "1",
-      title: "Hello there",
-      subtitle: "My subt1",
-    },
-    {
-      id: "2",
-      title: "heya",
-      subtitle: "My subt2",
-    },
-    {
-      id: "3",
-      title: "homie",
-      subtitle: "Mysub3",
-    },
-  ];
+  const { data: highlights, error } = useSWR(
+    "/api/posts?orderBy=views",
+    fetcher,
+  );
+  const router = useRouter();
+  const navigateToPost = (slug) => {
+    router.push("/blog/" + slug);
+  };
+
+  if (error) return <div>Failed to load</div>;
+  if (!highlights) return <div>Loading...</div>;
+
   return (
     <div className="w-full py-10">
       <div className="relative flex flex-col px-5 mx-auto space-y-5 md:w-3/4">
@@ -26,12 +25,16 @@ const BlogSection = () => {
             <span className="block">Blog Highlight</span>
           </h2>
         </div>
-        <div className="grid grid-cols-1 gap-10 py-10 md:grid-cols-3">
+        <div className="flex justify-center gap-10 py-10 ">
           {highlights.map((element) => (
             <BorderedCard
               key={element.id}
-              subtitle={element.subtitle}
+              subtitle={element.description}
               title={element.title}
+              cover={element.coverUrl}
+              onClick={() => {
+                navigateToPost(element.slug);
+              }}
             />
           ))}
         </div>

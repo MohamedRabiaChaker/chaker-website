@@ -46,12 +46,18 @@ export default function BlogPostPage() {
           <p className="text-lg text-gray-500">{post.description}</p>
         </div>
 
-        <div className="mb-6 flex flex-wrap gap-2">
-          {post.tags.map((tag) => (
-            <div key={tag} className="badge badge-outline badge-secondary">
-              {tag}
-            </div>
-          ))}
+        <div className="mb-6 flex justify-between items-center">
+          <div className="flex gap-2 flex-nowrap">
+            {post.tags.map((tag) => (
+              <div key={tag} className="badge badge-outline badge-secondary">
+                {tag}
+              </div>
+            ))}
+          </div>
+
+          <div className="font-bold  text-gray-600 whitespace-nowrap">
+            {post.views} Views
+          </div>
         </div>
         <RenderMarkdown>{post.content}</RenderMarkdown>
       </div>

@@ -9,7 +9,10 @@ import BlogElementCard from "@/components/BlogElementCard";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function BlogPage() {
-  const { data: posts, error } = useSWR("/api/posts", fetcher);
+  const { data: posts, error } = useSWR(
+    "/api/posts?orderBy=createdAt",
+    fetcher,
+  );
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 

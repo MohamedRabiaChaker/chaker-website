@@ -4,8 +4,9 @@ const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
+    const { orderBy } = req.query;
     const posts = await prisma.post.findMany({
-      orderBy: { createdAt: "desc" },
+      orderBy: { [orderBy]: "desc" },
     });
     res.json(posts);
   } else if (req.method === "POST") {
