@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import Meta from '@/components/Meta';
 import {
   getSiteWorkspace,
-  getWorkspacePaths,
 } from '@/prisma/services/workspace';
 
 const Site = ({ workspace }) => {
@@ -54,14 +53,6 @@ const Site = ({ workspace }) => {
       <DefaultErrorPage statusCode={404} />
     </>
   );
-};
-
-export const getStaticPaths = async () => {
-  const paths = await getWorkspacePaths();
-  return {
-    paths,
-    fallback: true,
-  };
 };
 
 export const getStaticProps = async ({ params }) => {
