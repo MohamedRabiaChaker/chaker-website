@@ -7,61 +7,6 @@ export const getMember = async (id) =>
     where: { id },
   });
 
-export const getMembers = async (slug) =>
-  await prisma.member.findMany({
-    select: {
-      id: true,
-      email: true,
-      status: true,
-      teamRole: true,
-      member: { select: { name: true } },
-    },
-    where: {
-      deletedAt: null,
-      workspace: {
-        deletedAt: null,
-        slug,
-      },
-    },
-  });
-
-export const getPendingInvitations = async (email) =>
-  await prisma.member.findMany({
-    select: {
-      id: true,
-      email: true,
-      joinedAt: true,
-      status: true,
-      teamRole: true,
-      invitedBy: {
-        select: {
-          email: true,
-          name: true,
-        },
-      },
-      workspace: {
-        select: {
-          createdAt: true,
-          inviteCode: true,
-          name: true,
-          slug: true,
-          workspaceCode: true,
-          creator: {
-            select: {
-              email: true,
-              name: true,
-            },
-          },
-        },
-      },
-    },
-    where: {
-      deletedAt: null,
-      email,
-      status: InvitationStatus.PENDING,
-      workspace: { deletedAt: null },
-    },
-  });
 
 export const remove = async (id) =>
   await prisma.member.update({

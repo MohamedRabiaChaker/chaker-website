@@ -85,22 +85,6 @@ export const deleteDomain = async (id, email, slug, name) => {
   });
 };
 
-export const getDomains = async (slug) =>
-  await prisma.domain.findMany({
-    select: {
-      name: true,
-      subdomain: true,
-      verified: true,
-      value: true,
-    },
-    where: {
-      deletedAt: null,
-      workspace: {
-        deletedAt: null,
-        slug,
-      },
-    },
-  });
 
 export const verifyDomain = async (id, email, slug, name, verified) => {
   const workspace = await prisma.workspace.findFirst({
