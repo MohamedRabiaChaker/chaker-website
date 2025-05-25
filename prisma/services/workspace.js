@@ -9,7 +9,6 @@ import {
   html as inviteHtml,
   text as inviteText,
 } from '@/config/email-templates/invitation';
-import { sendMail } from '@/lib/server/mail';
 import prisma from '@/prisma/index';
 
 export const countWorkspaces = async (slug) =>
@@ -39,12 +38,7 @@ export const createWorkspace = async (creatorId, email, name, slug) => {
       slug,
     },
   });
-  await sendMail({
-    html: createHtml({ code: workspace.inviteCode, name }),
-    subject: `[Nextacular] Workspace created: ${name}`,
-    text: createText({ code: workspace.inviteCode, name }),
-    to: email,
-  });
+
 };
 
 export const deleteWorkspace = async (id, email, slug) => {
@@ -259,13 +253,7 @@ export const inviteUsers = async (id, email, members, slug) => {
           },
         },
         where: { id: workspace.id },
-      }),
-      sendMail({
-        html: inviteHtml({ code: workspace.inviteCode, name: workspace.name }),
-        subject: `[Nextacular] You have been invited to join ${workspace.name} workspace`,
-        text: inviteText({ code: workspace.inviteCode, name: workspace.name }),
-        to: members.map((member) => member.email),
-      }),
+      })
     ]);
     return membersList;
   } else {
