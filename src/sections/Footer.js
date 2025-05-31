@@ -1,6 +1,7 @@
 import { FaBlogger, FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoIosMailOpen } from "react-icons/io";
 import LinkIconButton from "@/components/LinkIconButton";
+import { sendEvent } from "@/lib/analytics";
 const Footer = () => {
   return (
     <div className="w-full">
@@ -11,21 +12,37 @@ const Footer = () => {
               href="https://github.com/MohamedRabiaChaker"
               icon={FaGithub}
               label="GitHub"
+              onClick={() => {
+                sendEvent("visitGithub");
+              }}
             />
             <div className="divider divider-neutral divider-horizontal "></div>
             <LinkIconButton
               href="https://linkedin.com/in/chakerrabia/"
               icon={FaLinkedin}
               label="LinkedIn"
+              onClick={() => {
+                sendEvent("visitLinkedIn");
+              }}
             />
             <div className="divider divider-neutral divider-horizontal "></div>
             <LinkIconButton
               href="mailto:chakerrabia9@gmail.com"
               icon={IoIosMailOpen}
               label="email"
+              onClick={() => {
+                sendEvent("sendEmail");
+              }}
             />
             <div className="divider divider-neutral divider-horizontal "></div>
-            <LinkIconButton href="/blog" icon={FaBlogger} label="Blog" />
+            <LinkIconButton
+              href="/blog"
+              icon={FaBlogger}
+              label="Blog"
+              onClick={() => {
+                sendEvent("sendEmail");
+              }}
+            />
           </div>
         </footer>
         <p className="py-5 text-center text-gray-400">

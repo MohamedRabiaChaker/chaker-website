@@ -1,6 +1,7 @@
 import Timeline from "@/components/Timeline";
 import Button from "@/components/Button";
 import Image from "next/image";
+import { sendEvent } from "@/lib/analytics";
 
 const ProfessionalExperience = () => {
   return (
@@ -12,7 +13,14 @@ const ProfessionalExperience = () => {
         <Timeline />
         <Button className="bg-slate-400 rounded hover:bg-slate-300 px-8 py-3">
           <Image width="24" height="24" src="/icons/download.png" alt="icon" />
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              sendEvent("getResume");
+            }}
+          >
             Get my full Resume
           </a>
         </Button>

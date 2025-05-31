@@ -1,6 +1,7 @@
 import BorderedCard from "@/components/BorderedCard";
 import useSWR from "swr";
 import { useRouter } from "next/router";
+import { sendEvent } from "@/lib/analytics";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -33,6 +34,7 @@ const BlogSection = () => {
               title={element.title}
               cover={element.coverUrl}
               onClick={() => {
+                sendEvent("higlightToArticle." + element.slug);
                 navigateToPost(element.slug);
               }}
             />

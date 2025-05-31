@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import LandingLayout from "@/layouts/LandingLayout";
 import Header from "@/sections/Header";
 import BlogElementCard from "@/components/BlogElementCard";
+import { sendEvent } from "@/lib/analytics";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -23,9 +24,10 @@ export default function BlogPage() {
   if (error) return <div>Failed to load</div>;
   if (!posts) return <div>Loading...</div>;
 
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const filteredPosts = posts.filter((post) => {
+    sendEvent("filterBlogPosts", { searchTerm });
+    return post.title.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   const isOlderThan15Days = (dateString) => {
     const inputDate = new Date(dateString);
@@ -59,7 +61,10 @@ export default function BlogPage() {
             img={element.coverUrl}
             tags={element.tags}
             isNew={!isOlderThan15Days(element.createdAt)}
-            onClick={() => navigateToPost(element.slug)}
+            onClick={() => {
+              sendEvent("blogIndexToArticle." + element.slug);
+              navigateToPost(element.slug);
+            }}
           />
         ))}
       </div>
